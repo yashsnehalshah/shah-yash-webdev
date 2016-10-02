@@ -6,3 +6,8 @@
 1. mongod
 1. node server.js
 1. browse to localhost:3000
+
+The OpenShift `nodejs` cartridge documentation can be found at:
+
+http://openshift.github.io/documentation/oo_cartridge_guide.html#nodejs
+
