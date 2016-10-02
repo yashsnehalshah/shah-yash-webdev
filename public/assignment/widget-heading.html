@@ -2,9 +2,85 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
 </head>
 <body>
-$END$
+
+<nav class="navbar navbar-default navbar-fixed-top" id="nv1">
+    <div class="container-fluid">
+        <div class="navbar-header pull-left">
+
+            <p class="navbar-text pull-left leftmargin-tenpx">
+                <a href="widget-list.html" class="navbar-link">
+                    <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
+                    <span class="glyphicon glyphicon-chevron-left black-color">
+
+          </span>
+                    <!--</div>-->
+                </a>
+            </p>
+        </div>
+        <div class="navbar-header navbar-brand pull-left leftpadding-twentyfivepx">
+            <p class="darkgray-color">
+                <b>Widget Edit</b>
+            </p>
+        </div>
+        <div class="navbar-header pull-right">
+
+            <p class="navbar-text pull-right rightmargin-fifteenpx">
+                <a href="widget-list.html" class="navbar-link">
+                    <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
+                    <span class="glyphicon glyphicon-ok black-color">
+
+          </span>
+                    <!--</div>-->
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label for="widgetname">Name</label>
+            <input type="text" class="form-control" id="widgetname" placeholder="Name of Widget">
+        </div>
+        <div class="form-group">
+            <label for="widgettext">Text</label>
+            <input type="text" class="form-control" id="widgettext" placeholder="Some Text">
+        </div>
+        <div class="form-group">
+            <label for="widgetsize">Size</label>
+            <input type="text" class="form-control" id="widgetsize" placeholder="3">
+        </div>
+    </form>
+    <a class="btn btn-danger btn-block"
+       href="widget-list.html">Delete</a>
+</div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom" id="nv2">
+    <div class="container-fluid">
+
+        <div class="navbar-header pull-right">
+
+            <p class="navbar-text pull-right rightmargin-fifteenpx">
+                <a href="profile.html" class="navbar-link">
+                    <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
+                    <span class="glyphicon glyphicon-user primary-blue">
+
+          </span>
+                    <!--</div>-->
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
 </body>
 </html>

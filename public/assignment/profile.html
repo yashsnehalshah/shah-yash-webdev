@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
@@ -9,26 +10,31 @@
 <body>
 
 <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                Fixed Top
-            </a>
-            <p class="navbar-text pull-right">
-                <a href="#" class="navbar-link">
-          <span class="glyphicon glyphicon-plus">
+    <div class="container">
+        <div class="navbar-header navbar-brand">
+
+            <p class="white-color">
+                <b>Profile</b>
+            </p>
+                </div>
+
+
+        <div class="navbar-header pull-right">
+
+            <p class="navbar-text pull-right rightmargin-fifteenpx">
+                <a href="profile.html" class="navbar-link">
+                    <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
+                    <span class="glyphicon glyphicon-ok white-color">
+
           </span>
+                    <!--</div>-->
                 </a>
             </p>
         </div>
     </div>
 </nav>
-
-
     <div class="container">
-        <h1>Profile</h1>
-
-        <form>
+                <form>
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" class="form-control" id="username" placeholder="Username">
@@ -49,33 +55,24 @@
 
         <a class="btn btn-primary btn-block"
            href="website-list.html">Websites</a>
-        <a class="btn btn-danger  btn-block"
+        <a class="btn btn-danger btn-block"
            href="login.html">Logout</a>
     </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container">
-        <div class="row navbar-text">
-            <div class="col-xs-3 text-center">
-                <a href="#">
-                    <span class="glyphicon glyphicon-ok"></span>
+
+        <div class="navbar-header pull-right">
+
+            <p class="navbar-text pull-right rightmargin-fifteenpx">
+                <a href="#" class="navbar-link">
+                    <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
+                    <span class="glyphicon glyphicon-user white-color">
+
+          </span>
+                    <!--</div>-->
                 </a>
-            </div>
-            <div class="col-xs-3 text-center">
-                <a href="#">
-                    <span class="glyphicon glyphicon-plus"></span>
-                </a>
-            </div>
-            <div class="col-xs-3 text-center">
-                <a href="#">
-                    <span class="glyphicon glyphicon-star"></span>
-                </a>
-            </div>
-            <div class="col-xs-3 text-center">
-                <a href="#">
-                    <span class="glyphicon glyphicon-heart"></span>
-                </a>
-            </div>
+            </p>
         </div>
     </div>
 </nav>
