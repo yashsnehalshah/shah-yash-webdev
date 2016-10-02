@@ -3,5 +3,85 @@ input.form-control {
 }
 
 body {
-    padding-top: 36px;
+    padding-top: 65px;
 }
+
+.rightmargin-tenpx {
+    margin-right: 10px;
+}
+
+.white-color{
+    color:white;
+}
+
+.black-color{
+    color:black;
+}
+
+.darkgray-color{
+    color:darkgray;
+}
+
+.navbar-default{
+    background-color: steelblue;
+}
+
+.navbar-default .navbar-brand{
+    color:white;
+}
+
+.primary-blue{
+    color:steelblue;
+}
+
+.topmargin-tenpx{
+    margin-top: 10px;
+}
+
+.topmargin-twentypx{
+    margin-top: 20px;
+}
+.white-border{
+    border-color: white;
+}
+
+.rightmargin-fivepx{
+    margin-right: 5px;
+}
+
+.leftmargin-tenpx{
+    margin-left: 10px;
+}
+
+.leftpadding-twentyfivepx {
+    padding-left: 25px;
+}
+.rightmargin-fifteenpx{
+    margin-right: 15px;
+}
+.no-underline a{
+    text-decoration: none;
+}
+
+#nv1, #nv2{
+    background-color:#f8f8f8;
+}
+
+.my-divider{
+    width:1px;
+    height:100%;
+    border-left:1px darkgray;
+}
+
+.rightpadding-onepx{
+    margin-right: 1px;
+}
+
+.posn-rel{
+    position: relative;
+}
+
+.posn-abs{
+    position: absolute;
+}
+
