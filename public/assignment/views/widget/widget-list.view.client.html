@@ -1,0 +1,109 @@
+<nav class="navbar navbar-default navbar-fixed-top" id="nv1">
+    <div class="container-fluid">
+        <div class="navbar-header pull-left">
+
+            <p class="navbar-text pull-left leftmargin-tenpx">
+                <a href="#/user/{{model.id}}/website/{{model.websiteId}}/page" class="navbar-link">
+                    <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
+                    <span class="glyphicon glyphicon-chevron-left black-color">
+
+          </span>
+                    <!--</div>-->
+                </a>
+            </p>
+        </div>
+        <div class="navbar-header navbar-brand pull-left leftpadding-twentyfivepx">
+            <p class="darkgray-color">
+                <b>Widgets</b>
+            </p>
+        </div>
+        <div class="navbar-header pull-right">
+
+            <p class="navbar-text pull-right rightmargin-fifteenpx">
+                <a href="#/user/{{model.id}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new" class="navbar-link">
+                    <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
+                    <span class="glyphicon glyphicon-plus black-color">
+
+          </span>
+                    <!--</div>-->
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+
+        <div ng-switch="widget.widgetType"
+             ng-repeat="widget in model.widgets">
+            <a href="#/user/{{model.id}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}" class="pull-right">
+                <span class="glyphicon glyphicon-cog"></span>
+            </a>
+            <div ng-switch-when="HEADER" ng-switch="widget.size">
+                <h1 ng-switch-when="1">{{widget.text}}</h1>
+                <h2 ng-switch-when="2">{{widget.text}}</h2>
+                <h3 ng-switch-when="3">{{widget.text}}</h3>
+                <h4 ng-switch-when="4">{{widget.text}}</h4>
+                <h5 ng-switch-when="5">{{widget.text}}</h5>
+                <h6 ng-switch-when="6">{{widget.text}}</h6>
+            </div>
+
+            <div ng-switch-when="HTML">
+                <div ng-bind-html="model.getSafeHTML(widget)"></div>
+            </div>
+
+            <div ng-switch-when="IMAGE">
+                <img width="{{widget.width}}%" ng-src="{{widget.url}}"/>
+            </div>
+
+            <div ng-switch-when="YOUTUBE">
+                <iframe width="{{widget.width}}"  ng-src="{{model.getSafeURL(widget)}}" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div ng-switch-default>
+                Unable to render widget
+            </div>
+
+    </div>
+</div>
+</div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom" id="nv2">
+    <div class="container-fluid">
+        <div class="navbar-header pull-left">
+
+            <p class="navbar-text pull-left leftmargin-tenpx">
+                <a href="#" class="navbar-link">
+                    <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
+                    <span class="glyphicon glyphicon-triangle-right black-color">
+
+          </span>
+                    <!--</div>-->
+                </a>
+            </p>
+            <p class="navbar-text pull-left leftmargin-tenpx">
+                <a href="#" class="navbar-link">
+                    <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
+                    <span class="glyphicon glyphicon-eye-open black-color">
+
+          </span>
+                    <!--</div>-->
+                </a>
+            </p>
+        </div>
+        <div class="navbar-header pull-right">
+
+            <p class="navbar-text pull-right rightmargin-fifteenpx">
+                <a href="#/user/{{model.id}}" class="navbar-link">
+                    <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
+                    <span class="glyphicon glyphicon-user primary-blue">
+
+          </span>
+                    <!--</div>-->
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>

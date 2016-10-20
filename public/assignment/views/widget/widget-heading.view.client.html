@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
-
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/style.css" rel="stylesheet"/>
-</head>
-<body>
-
 <nav class="navbar navbar-default navbar-fixed-top" id="nv1">
     <div class="container-fluid">
         <div class="navbar-header pull-left">
 
             <p class="navbar-text pull-left leftmargin-tenpx">
-                <a href="page-list.html" class="navbar-link">
+                <a href="#/user/{{model.id}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">
                     <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
                     <span class="glyphicon glyphicon-chevron-left black-color">
 
@@ -26,13 +14,13 @@
         </div>
         <div class="navbar-header navbar-brand pull-left leftpadding-twentyfivepx">
             <p class="darkgray-color">
-                <b>Edit Page</b>
+                <b>Widget Edit</b>
             </p>
         </div>
         <div class="navbar-header pull-right">
 
             <p class="navbar-text pull-right rightmargin-fifteenpx">
-                <a href="page-list.html" class="navbar-link">
+                <a ng-click="model.updateWidget(model.widget)" class="navbar-link">
                     <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
                     <span class="glyphicon glyphicon-ok black-color">
 
@@ -47,16 +35,19 @@
 <div class="container">
     <form>
         <div class="form-group">
-            <label for="pagename">Name</label>
-            <input type="text" class="form-control" id="pagename" placeholder="Blog Post">
+            <label for="widgetname">Name</label>
+            <input ng-model="model.widget.name" type="text" class="form-control" id="widgetname" placeholder="Name of Widget">
         </div>
         <div class="form-group">
-            <label for="pagetitle">Title</label>
-            <input type="text" class="form-control" id="pagetitle" placeholder="Page Title">
+            <label for="widgettext">Text</label>
+            <input ng-model="model.widget.text" type="text" class="form-control" id="widgettext" placeholder="Some Text">
+        </div>
+        <div class="form-group">
+            <label for="widgetsize">Size</label>
+            <input ng-model="model.widget.size" type="text" class="form-control" id="widgetsize" placeholder="3">
         </div>
     </form>
-    <a class="btn btn-danger btn-block"
-       href="page-list.html">Delete</a>
+    <a ng-click="model.deleteWidget()" class="btn btn-danger btn-block">Delete</a>
 </div>
 
 
@@ -66,7 +57,7 @@
         <div class="navbar-header pull-right">
 
             <p class="navbar-text pull-right rightmargin-fifteenpx">
-                <a href="profile.html" class="navbar-link">
+                <a href="#/user/{{model.id}}" class="navbar-link">
                     <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
                     <span class="glyphicon glyphicon-user primary-blue">
 
@@ -77,6 +68,3 @@
         </div>
     </div>
 </nav>
-
-</body>
-</html>

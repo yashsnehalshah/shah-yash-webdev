@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
-
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/style.css" rel="stylesheet"/>
-</head>
-<body>
 
 <nav class="navbar navbar-default navbar-fixed-top" id="nv1">
     <div class="container-fluid">
         <div class="navbar-header pull-left">
 
             <p class="navbar-text pull-left leftmargin-tenpx">
-                <a href="website-list.html" class="navbar-link">
+                <a href="#/user/{{model.id}}/website" class="navbar-link">
                     <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
                     <span class="glyphicon glyphicon-chevron-left black-color">
 
@@ -32,7 +21,7 @@
         <div class="navbar-header pull-right">
 
             <p class="navbar-text pull-right rightmargin-fifteenpx">
-                <a href="page-new.html" class="navbar-link">
+                <a href="#/user/{{model.id}}/website/{{model.websiteId}}/page/new" class="navbar-link">
                     <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
                     <span class="glyphicon glyphicon-plus black-color">
 
@@ -45,16 +34,11 @@
 </nav>
 <div class="container-fluid">
     <ul class="list-group no-underline">
-        <li class="list-group-item text-primary white-border"><a href="widget-list.html">Blog Post</a><a href="page-edit.html">
+        <li ng-repeat="page in model.pages" class="list-group-item text-primary white-border">
+            <a href="#/user/{{model.id}}/website/{{page.websiteId}}/page/{{page._id}}/widget">{{page.name}}</a>
+            <a href="#/user/{{model.id}}/website/{{page.websiteId}}/page/{{page._id}}">
             <span class="glyphicon glyphicon-cog pull-right rightmargin-fivepx primary-blue"></span></a></li>
-        <li class="list-group-item text-primary white-border"><a href="widget-list.html">Blogs</a><a href="page-edit.html">
-            <span class="glyphicon glyphicon-cog pull-right rightmargin-fivepx primary-blue"></span></a></li>
-        <li class="list-group-item text-primary white-border"><a href="widget-list.html">Home</a><a href="page-edit.html">
-            <span class="glyphicon glyphicon-cog pull-right rightmargin-fivepx primary-blue"></span></a></li>
-        <li class="list-group-item text-primary white-border"><a href="widget-list.html">About</a><a href="page-edit.html">
-            <span class="glyphicon glyphicon-cog pull-right rightmargin-fivepx primary-blue"></span></a></li>
-        <li class="list-group-item text-primary white-border"><a href="widget-list.html">Contact Us</a><a href="page-edit.html">
-            <span class="glyphicon glyphicon-cog pull-right rightmargin-fivepx primary-blue"></span></a></li>
+
     </ul>
 </div>
 <nav class="navbar navbar-default navbar-fixed-bottom" id="nv2">
@@ -63,7 +47,7 @@
         <div class="navbar-header pull-right">
 
             <p class="navbar-text pull-right rightmargin-fifteenpx">
-                <a href="profile.html" class="navbar-link">
+                <a href="#/user/{{model.id}}" role="button" class="navbar-link">
                     <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
                     <span class="glyphicon glyphicon-user primary-blue">
 
@@ -74,6 +58,3 @@
         </div>
     </div>
 </nav>
-
-</body>
-</html>

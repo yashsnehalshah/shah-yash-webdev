@@ -1,0 +1,74 @@
+<nav class="navbar navbar-default navbar-fixed-top" id="nv1">
+    <div class="container-fluid">
+        <div class="navbar-header pull-left">
+
+            <p class="navbar-text pull-left leftmargin-tenpx">
+                <a href="#/user/{{model.id}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">
+                    <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
+                    <span class="glyphicon glyphicon-chevron-left black-color">
+
+          </span>
+                    <!--</div>-->
+                </a>
+            </p>
+        </div>
+        <div class="navbar-header navbar-brand pull-left leftpadding-twentyfivepx">
+            <p class="darkgray-color">
+                <b>Choose Widget</b>
+            </p>
+        </div>
+
+    </div>
+</nav>
+<div class="container-fluid">
+    <ul class="list-group no-underline">
+        <li class="list-group-item text-primary white-border">
+            <a ng-click="model.createWidget('HEADER')">
+                Header
+            </a>
+        </li>
+        <li class="list-group-item text-primary white-border">
+            <a ng-click="model.createWidget('HEADER')">
+                Label
+            </a>
+        </li>
+        <li class="list-group-item text-primary white-border">
+            <a ng-click="model.createWidget('HEADER')">
+                HTML
+            </a>
+        </li>
+        <li class="list-group-item text-primary white-border">
+            <a ng-click="model.createWidget('HEADER')">
+                Text Input
+            </a>
+        </li>
+
+        <li class="list-group-item text-primary white-border">
+            <a ng-click="model.createWidget('IMAGE')">
+                Image
+            </a>
+        </li>
+        <li class="list-group-item text-primary white-border">
+            <a ng-click="model.createWidget('YOUTUBE')">
+                Youtube
+            </a>
+        </li>
+    </ul>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom" id="nv2">
+    <div class="container-fluid">
+
+        <div class="navbar-header pull-right">
+
+            <p class="navbar-text pull-right rightmargin-fifteenpx">
+                <a href="#/user/{{model.id}}" class="navbar-link">
+                    <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
+                    <span class="glyphicon glyphicon-user primary-blue">
+
+          </span>
+                    <!--</div>-->
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
