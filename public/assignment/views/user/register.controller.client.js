@@ -19,7 +19,7 @@
              if(password===vpassword)
              {
                  var user={
-                     _id:(new Date).getTime()+"",
+                     _id:(new Date).getTime(),
                      username:username,
                      password:password,
                      firstName: "",

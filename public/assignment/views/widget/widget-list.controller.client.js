@@ -17,12 +17,12 @@
         vm.widgets=WidgetService.findWidgetsByPageId(vm.pageId);
 
 
-        function getSafeHTML(widget){
-             return $sce.trustAsHtml(widget.text);
+        function getSafeHTML(awidget){
+             return $sce.trustAsHtml(awidget.text);
         }
 
-        function getSafeURL(widget){
-            var parts=widget.url.split("/");
+        function getSafeURL(awidget){
+            var parts=awidget.url.split("/");
             var id=parts[parts.length -1];
             var url="https://www.youtube.com/embed/"+id;
             return $sce.trustAsResourceUrl(url);

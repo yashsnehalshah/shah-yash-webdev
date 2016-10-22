@@ -31,14 +31,9 @@
 
           PageService.updatePage(vm.pageId,updatedpage);
 
-            if(PageService.updatePage(vm.pageId,updatedpage)=== null)
-            {
-                vm.error="Unable to update page";
-            }
-            else
-            {
+
                 $location.url("/user/"+vm.id+"/website/"+vm.websiteId+"/page");
-            }
+
 
         }
 
@@ -46,14 +41,10 @@
 
             PageService.deletePage(vm.pageId);
 
-            if(PageService.deletePage(vm.pageId) === null){
 
-                vm.error="Unable to delete page";
-            }
-            else{
 
                 $location.url("/user/"+vm.id+"/website/"+vm.websiteId+"/page");
-            }
+
 
 
         }

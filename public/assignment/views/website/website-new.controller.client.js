@@ -17,19 +17,16 @@
              _id:(new Date).getTime()+"",
              name:n,
              description:d,
-             developerId: userId
+             developerId: vm.id
 
          };
 
          WebsiteService.createWebsite(vm.id,newcontent);
 
-         if(WebsiteService.createWebsite(vm.id,newcontent) === null)
-         {
-             vm.error="Unable to create website";
-         }
-         else{
+
+
              $location.url("/user/"+vm.id+"/website");
-         }
+
 
         }
 

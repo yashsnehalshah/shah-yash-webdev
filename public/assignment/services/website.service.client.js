@@ -34,9 +34,9 @@
             return result;
         }
 
-        function createWebsite(userId, website){
-            website.developerId=userId;
-            websites.push(website);
+        function createWebsite(userId, awebsite){
+            awebsite.developerId=userId;
+            websites.push(awebsite);
         }
 
         function findWebsiteById(websiteId){

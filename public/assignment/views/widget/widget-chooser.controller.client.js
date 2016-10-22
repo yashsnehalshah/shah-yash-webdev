@@ -17,7 +17,7 @@
         function createWidget(widgettype) {
             if (widgettype === "HEADER") {
                 var newWidget = {
-                    _id: (new Date()).getTime() + "",
+                    _id: (new Date()).getTime(),
                     widgetType: "HEADER",
                     pageId: vm.pageId,
                     size: 2,
@@ -26,7 +26,7 @@
             }
             else if (widgettype === "IMAGE") {
                 var newWidget = {
-                    _id: (new Date()).getTime() + "",
+                    _id: (new Date()).getTime(),
                     widgetType: "IMAGE",
                     pageId: vm.pageId,
                     width: "100%",
@@ -35,7 +35,7 @@
             }
             else if (widgettype === "YOUTUBE") {
                 var newWidget = {
-                    _id: (new Date()).getTime() + "",
+                    _id: (new Date()).getTime(),
                     widgetType: "YOUTUBE",
                     pageId: vm.pageId,
                     width: "100%",
@@ -44,7 +44,7 @@
             }
             else if (widgettype === "HTML") {
                 var newWidget = {
-                    _id: (new Date()).getTime() + "",
+                    _id: (new Date()).getTime(),
                     widgetType: "HTML",
                     pageId: vm.pageId,
                     text: "<p>Lorem ipsum</p>"

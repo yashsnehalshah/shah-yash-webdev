@@ -5,11 +5,12 @@
 
 
     function NewPageController($location,$routeParams,PageService){
+        var vm=this;
         var userId = parseInt($routeParams['uid']);
         var websiteId=parseInt($routeParams['wid']);
         vm.id=userId;
         vm.websiteId=websiteId;
-        vm.pages=PageService.findPageByWebsiteId(wm.websiteId);
+        vm.pages=PageService.findPageByWebsiteId(vm.websiteId);
         vm.createPage=createPage;
 
 

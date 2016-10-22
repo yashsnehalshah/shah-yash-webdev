@@ -23,8 +23,8 @@
             $location.url("/user/"+vm.id+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
         }
 
-        function updateWidget(widget){
-             WidgetService.updateWidget(vm.widgetId,widget);
+        function updateWidget(awidget){
+             WidgetService.updateWidget(vm.widgetId,awidget);
             $location.url("/user/"+vm.id+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
 
         }

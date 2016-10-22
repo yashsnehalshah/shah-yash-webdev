@@ -20,34 +20,27 @@
 
         function updateWebsite(n,d){
             var updatedcontent={
-                _id:websiteId,
+                _id:vm.websiteId,
                 name:n,
                 description:d,
-                developerId:userId
+                developerId:vm.userId
 
             };
 
-            WebsiteService.updateWebsite(websiteId,updatedcontent);
+            WebsiteService.updateWebsite(vm.websiteId,updatedcontent);
 
-            if(WebsiteService.updateWebsite(websiteId,updatedcontent) === null)
-            {
-                vm.error="Unable to update website";
-            }
-            else{
+
                 $location.url("/user/"+vm.id+"/website");
-            }
+
         }
 
         function deleteWebsite(webid){
 
             WebsiteService.deleteWebsite(webid);
 
-            if(WebsiteService.deleteWebsite(webid) === null){
-                vm.error="Unable to delete website";
-            }
-            else{
+
                 $location.url("/user/"+vm.id+"/website");
-            }
+
 
         }
 
