@@ -16,7 +16,7 @@
         vm.updateWebsite=updateWebsite;
         vm.deleteWebsite=deleteWebsite;
         vm.website=WebsiteService.findWebsiteById(vm.websiteId);
-        vm.websites=WebsiteService.findWebsitesByUser(wm.id);
+        vm.websites=WebsiteService.findWebsitesByUser(vm.id);
 
         function updateWebsite(n,d){
             var updatedcontent={
