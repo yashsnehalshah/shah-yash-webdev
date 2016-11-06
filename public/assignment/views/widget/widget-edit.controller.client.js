@@ -42,10 +42,10 @@
 
         function updateWidget(awidget){
 
-            var result=
+
                 WidgetService.updateWidget(vm.widgetId,awidget)
                     .then(function (res) {
-                        if(result){
+                        if(res){
                             $location.url("/user/"+vm.id+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
                         }
                         else{

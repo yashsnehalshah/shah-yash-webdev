@@ -21,13 +21,14 @@ module.exports=function (app) {
     app.get("/api/page/:pageId/widget",findAllWidgetsForPage);
     app.put("/api/widget/:widgetId",updateWidget);
     app.delete("/api/widget/:widgetId",deleteWidget);
-    app.post ("/api/upload", upload.single('myFile'), uploadImage);
+    app.post ("/api/uploads", upload.single('myFile'), uploadImage);
+    app.put("/api/page/:pageId/widget", updateWidgetLocation);
 
     function uploadImage(req, res) {
 
-        var userId = req.body.userId;
-        var websiteId = req.body.websiteId;
-        var pageId = req.body.pageId;
+        var userId = parseInt(req.body.userId);
+        var websiteId = parseInt(req.body.websiteId);
+        var pageId = parseInt(req.body.pageId);
         var widgetId = req.body.widgetId;
         var width = req.body.width;
         var myFile = req.file;
@@ -41,9 +42,9 @@ module.exports=function (app) {
         var destination = myFile.destination;  // folder where file is saved to
         var size = myFile.size;
         var mimetype = myFile.mimetype;
-        // res.send(200);
+
         for(var i in widgets){
-            if(widgets[i]._id===widgetId){
+            if(widgets[i]._id==widgetId){
                 widgets[i].url="/uploads/"+filename;
             }
         }
@@ -54,14 +55,14 @@ module.exports=function (app) {
     function createWidget(req,res) {
         var widget=req.body;
         widgets.push(widget);
-        res.send(widgets);
+        res.send(widget);
     }
 
 
     function findWidgetById(req,res) {
         var wgid=req.params.widgetId;
         for(var w in widgets){
-            if(widgets[w]._id===wgid){
+            if(widgets[w]._id==wgid){
                 res.send(widgets[w]);
                 return;
             }
@@ -87,7 +88,7 @@ module.exports=function (app) {
         var widget=req.body;
         if(widget.widgetType=="HEADER"){
             for(var w in widgets){
-                if(widgets[w]._id===wgid){
+                if(widgets[w]._id==wgid){
                     widgets[w].size=widget.size;
                     widgets[w].text=widget.text;
                     widgets[w].name=widget.name;
@@ -99,7 +100,7 @@ module.exports=function (app) {
         }
         else if(widget.widgetType=="YOUTUBE"){
             for(var w in widgets){
-                if(widgets[w]._id===wgid){
+                if(widgets[w]._id==wgid){
                     widgets[w].width=widget.width;
                     widgets[w].text=widget.text;
                     widgets[w].name=widget.name;
@@ -113,7 +114,7 @@ module.exports=function (app) {
         }
         else if(widget.widgetType=="IMAGE"){
             for(var w in widgets){
-                if(widgets[w]._id===wgid){
+                if(widgets[w]._id==wgid){
                     widgets[w].width=widget.width;
                     widgets[w].text=widget.text;
                     widgets[w].name=widget.name;
@@ -128,7 +129,7 @@ module.exports=function (app) {
 
         else if(widget.widgetType=="HTML"){
             for(var i in widgets){
-                if(widgets[i]._id===wgid){
+                if(widgets[i]._id==wgid){
                     widgets[i].text=widget.text;
                     res.send(true);
                     return;
@@ -143,7 +144,7 @@ module.exports=function (app) {
     function deleteWidget(req,res) {
         var wgid=req.params.widgetId;
         for(var w in widgets){
-            if(widgets[w]._id===wgid){
+            if(widgets[w]._id==wgid){
                 widgets.splice(i,1);
                 res.send(true);
                 return;
@@ -152,6 +153,10 @@ module.exports=function (app) {
         res.send(false);
         return;
     }
-
+    function updateWidgetLocation(req, res) {
+        var initial = req.query.initial;
+        var final = req.query.final;
+        widgets.splice(final, 0, widgets.splice(initial, 1)[0]);
+    }
 
 };
