@@ -74,7 +74,7 @@ module.exports=function (app) {
         var pid=req.params.pageId;
         var result=[];
         for(var w in widgets){
-            if(widgets[w].pageId===pid){
+            if(widgets[w].pageId == pid){
                 result.push(widgets[w]);
             }
         }

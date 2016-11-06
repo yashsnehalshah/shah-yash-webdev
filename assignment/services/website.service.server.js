@@ -6,7 +6,7 @@ module.exports = function(app) {
      { _id: 567, name: "Tic Tac Toe", description: "tictactoe",developerId: 123 },
      { _id: 678, name: "Checkers", description: "checkers",   developerId: 123 },
      { _id: 789, name: "Chess",    description: "chess",   developerId: 234 }
-     ]
+     ];
 
 
     app.get("/api/user/:userId/website", findAllWebsitesForUser);
@@ -18,7 +18,7 @@ module.exports = function(app) {
     function createWebsite(req, res) {
         var website = req.body;
         websites.push(website);
-        res.send(websites);
+        res.send(website);
         return;
     }
 
@@ -30,7 +30,7 @@ module.exports = function(app) {
                 result.push(websites[w]);
             }
         }
-        res.json(result);
+        res.send(result);
         return;
     }
 

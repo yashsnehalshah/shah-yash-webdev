@@ -21,13 +21,13 @@
             WidgetService.findWidgetsByPageId(vm.pageId)
                 .then(function (res) {
                     vm.widgets=res.data;
-                })
+                });
 
 
-            var widgets = $(".wam-widgets")
+            /*var widgets = $(".wam-widgets")
                  .sortable({
                      axis: 'y'
-                           });
+                           });*/
         }
 
         init();
