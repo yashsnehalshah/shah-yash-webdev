@@ -14,18 +14,45 @@
         vm.websiteId=websiteId;
         vm.pageId=pageId;
         vm.widgetId=widgetId;
-        vm.widget=WidgetService.findWidgetById(vm.widgetId);
+
         vm.updateWidget=updateWidget;
         vm.deleteWidget=deleteWidget;
 
+        function init(){
+            WidgetService.findWidgetById(vm.widgetId)
+                .then(function (res) {
+                    vm.widget=res.data;
+                })
+
+        }
+
+        init();
+
+
         function deleteWidget(){
-            WidgetService.deleteWidget(vm.widgetId);
-            $location.url("/user/"+vm.id+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
+            var result=WidgetService.deleteWidget(vm.widgetId);
+            if(result){
+                $location.url("/user/"+vm.id+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
+            }
+            else{
+                console.log("unable to delete widget");
+            }
+
         }
 
         function updateWidget(awidget){
-             WidgetService.updateWidget(vm.widgetId,awidget);
-            $location.url("/user/"+vm.id+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
+
+            var result=
+                WidgetService.updateWidget(vm.widgetId,awidget)
+                    .then(function (res) {
+                        if(result){
+                            $location.url("/user/"+vm.id+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
+                        }
+                        else{
+                            console.log("unable to update widget");
+                        }
+                    })
+
 
         }
 

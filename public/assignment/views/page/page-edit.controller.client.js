@@ -15,37 +15,50 @@
         vm.pageId=pageId;
         vm.updatePage=updatePage;
         vm.deletePage=deletePage;
-        vm.pages=PageService.findPageByWebsiteId(vm.websiteId);
-        vm.page=PageService.findPageById(vm.pageId);
+
+function init(){
+    PageService.findPageByWebsiteId(vm.websiteId)
+        .then(function (res) {
+            vm.pages=res.data;
+        })
+    PageService.findPageById(vm.pageId)
+        .then(function (res) {
+            vm.page=res.data;
+        })
+}
+init();
+
+
 
         function updatePage(pagename,pagetitle){
 
-          var updatedpage={
-
-              _id:vm.pageId,
-              name:pagename,
-              title:pagetitle,
-            websiteId:vm.websiteId
-
-          }
-
-          PageService.updatePage(vm.pageId,updatedpage);
+          PageService.updatePage(vm.pageId,updatedpage)
 
 
-                $location.url("/user/"+vm.id+"/website/"+vm.websiteId+"/page");
-
+              .then(function (res) {
+                  var success=res.data;
+                  if(success){
+                      $location.url("/user/"+vm.id+"/website/"+vm.websiteId+"/page");
+                  }
+                  else{
+                      console.log("Unable to update page");
+                  }
+              })
 
         }
 
         function deletePage(){
 
-            PageService.deletePage(vm.pageId);
-
-
-
-                $location.url("/user/"+vm.id+"/website/"+vm.websiteId+"/page");
-
-
+            PageService.deletePage(vm.pageId)
+                .then(function (res) {
+                    var success=res.data;
+                    if(success){
+                        $location.url("/user/"+vm.id+"/website/"+vm.websiteId+"/page");
+                    }
+                    else{
+                        console.log("Unable to delete page");
+                    }
+                })
 
         }
 

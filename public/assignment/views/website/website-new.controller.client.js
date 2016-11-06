@@ -10,22 +10,31 @@
         var userId = parseInt($routeParams['uid']);
         vm.id=userId;
         vm.createNewWebsite=createNewWebsite;
-        vm.websites=WebsiteService.findWebsitesByUser(vm.id);
+
+
+        function init()
+        {
+            WebsiteService.findWebsitesByUser(vm.id)
+                .then(function (res) {
+                    vm.websites=res.data;
+                })
+        }
+
+        init();
+
+
 
         function createNewWebsite(n,d){
-         var newcontent={
-             _id:(new Date).getTime()+"",
-             name:n,
-             description:d,
-             developerId: vm.id
-
-         };
-
-         WebsiteService.createWebsite(vm.id,newcontent);
-
-
-
-             $location.url("/user/"+vm.id+"/website");
+            WebsiteService.createWebsite(vm.id,newcontent)
+                .then(function (res) {
+                    var newWebsite=res.data;
+                    if(newWebsite){
+                        $location.url("/user/"+vm.id+"/website");
+                    }
+                    else{
+                        console.log("unable to create website");
+                    }
+                })
 
 
         }

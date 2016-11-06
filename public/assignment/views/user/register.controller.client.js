@@ -9,38 +9,38 @@
         var vm = this;
         vm.createUser = createUser;
 
-        function createUser(username,password,vpassword)
-        {
-         var findSameUsername=UserService.findUserByUsername(username);
-         if(findSameUsername !== null){
-             vm.error = "Username already exists";
-         }
-         else{
-             if(password===vpassword)
-             {
-                 var user={
-                     _id:(new Date).getTime(),
-                     username:username,
-                     password:password,
-                     firstName: "",
-                     LastName: ""
-                 };
+        function createUser(username,password,vpassword) {
+            UserService.findUserByUsername(username)
+                .then(function (res) {
+                    var checkifalreadyexist = res.data;
 
-                 UserService.createUser(user);
-                 var flag=true;
+                    if (checkifalreadyexist) {
+                        vm.error = "Username already exists";
+                    }
+                    else {
+                        if (password === vpassword) {
+                            var user = {
+                                _id: (new Date).getTime(),
+                                username: username,
+                                password: password,
+                                firstName: username,
+                                lastName: username
+                            };
 
-                 if(flag)
-                 {
-                     $location.url("/user/"+user._id);
-                 }
-                 else{
-                     $location.url("/login");
-                 }
-             }
-             else{
-                 vm.error = "Passwords do not match";
-             }
-         }
+                            UserService.createUser(user)
+                                .success(function () {
+                                    $location.url("/user/" + user._id);
+                                })
+                                .error(function () {
+                                    $location.url("/login");
+                                })
+
+                        }
+                        else {
+                            vm.error = "Passwords do not match";
+                        }
+                    }
+                })
         }
 
     }

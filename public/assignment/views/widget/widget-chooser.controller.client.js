@@ -51,10 +51,19 @@
                 };
             }
 
-            WidgetService.createWidget(vm.pageId,newWidget);
-            var widgetId=newWidget._id;
-            vm.widgetId=widgetId;
-            $location.url("/user/"+vm.id+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+vm.widgetId);
+            WidgetService.createWidget(vm.pageId,newWidget)
+                .then(function (res) {
+                    var result=res.data;
+                    if(result){
+                        var widgetId=newWidget._id;
+                        vm.widgetId=widgetId;
+                        $location.url("/user/"+vm.id+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+vm.widgetId);
+                    }
+                    else{
+                        console.log("unable to update widget");
+                    }
+                })
+
         }
 
 

@@ -10,24 +10,34 @@
         var websiteId=parseInt($routeParams['wid']);
         vm.id=userId;
         vm.websiteId=websiteId;
-        vm.pages=PageService.findPageByWebsiteId(vm.websiteId);
+
         vm.createPage=createPage;
 
 
+        function init()
+        {
+            PageService.findPageByWebsiteId(vm.websiteId)
+                .success(function (res) {
+                    vm.pages=res;
+                })
+        }
+        init();
+
         function createPage(pagename,pagetitle){
 
-           var newpage={
-             _id:(new Date).getTime()+"",
-               name: pagename,
-               title:pagetitle,
-               websiteId: vm.websiteId
+            PageService.createPage(vm.websiteId,pagename,pagetitle)
 
 
-           };
+                .then(function (response) {
+                    var success=response.data;
+                    if(success){
+                        $location.url("/user/"+vm.id+"/website/"+vm.websiteId+"/page");
+                    }
+                    else{
+                        console.log("Unable to create new page");
+                    }
+                })
 
-           PageService.createPage(vm.websiteId,newpage);
-
-            $location.url("/user/"+vm.id+"/website/"+vm.websiteId+"/page");
 
         }
 

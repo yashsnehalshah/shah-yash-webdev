@@ -14,7 +14,23 @@
         vm.pageId=pageId;
         vm.getSafeHTML=getSafeHTML;
         vm.getSafeURL=getSafeURL;
-        vm.widgets=WidgetService.findWidgetsByPageId(vm.pageId);
+
+
+        function init()
+        {
+            WidgetService.findWidgetsByPageId(vm.pageId)
+                .then(function (res) {
+                    vm.widgets=res.data;
+                })
+
+
+            var widgets = $(".wam-widgets")
+                 .sortable({
+                     axis: 'y'
+                           });
+        }
+
+        init();
 
 
         function getSafeHTML(awidget){

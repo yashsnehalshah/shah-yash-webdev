@@ -8,6 +8,14 @@
 
         var userId = parseInt($routeParams['uid']);
         vm.id=userId;
-        vm.websites = WebsiteService.findWebsitesByUser(vm.id);
+        function init() {
+            WebsiteService.findWebsitesForUser(vm.id)
+
+                .success(function(websites){
+                    vm.websites = websites;
+                });
+        }
+        init();
+
     }
 })();
