@@ -14,6 +14,7 @@
         vm.pageId=pageId;
         vm.getSafeHTML=getSafeHTML;
         vm.getSafeURL=getSafeURL;
+        vm.reorderWidget=reorderWidget;
 
 
         function init()
@@ -44,6 +45,19 @@
             return $sce.trustAsResourceUrl(url);
 
         }
+
+
+        function reorderWidget(start, end) {
+
+            WidgetService
+                .sort(vm.pageId, start, end)
+                .then(
+                    function (res) {
+                        console.log("Success")
+                        init();
+                    });
+        }
+
 
 
     }

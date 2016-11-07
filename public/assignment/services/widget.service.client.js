@@ -53,11 +53,8 @@
             return $http.delete(url);
         }
 
-        function sort(start, end) {
-            var url = "/api/page/:pageId/widget?initial=index1&final=index2";
-            url = url
-                .replace("index1", start)
-                .replace("index2", end);
+        function sort(pageId, start, end) {
+            var url = "/api/page/"+pageId+"/widget?initial="+start+"&final="+end;
             return $http.put(url);
         }
 
