@@ -6,10 +6,10 @@
 
     function EditWidgetController($location,$routeParams,WidgetService){
         var vm = this;
-        var userId = parseInt($routeParams['uid']);
-        var websiteId=parseInt($routeParams['wid']);
-        var pageId=parseInt($routeParams['pid']);
-        var widgetId=parseInt($routeParams['wgid']);
+        var userId = $routeParams['uid'];
+        var websiteId=$routeParams['wid'];
+        var pageId=$routeParams['pid'];
+        var widgetId=$routeParams['wgid'];
         vm.id=userId;
         vm.websiteId=websiteId;
         vm.pageId=pageId;

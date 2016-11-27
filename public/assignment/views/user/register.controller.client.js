@@ -20,7 +20,7 @@
                     else {
                         if (password === vpassword) {
                             var user = {
-                                _id: (new Date).getTime(),
+                                //_id: (new Date).getTime(),
                                 username: username,
                                 password: password,
                                 firstName: username,
@@ -28,13 +28,18 @@
                             };
 
                             UserService.createUser(user)
-                                .success(function () {
-                                    $location.url("/user/" + user._id);
-                                })
-                                .error(function () {
+                                .then(function (response) {
+                                var success = response.data;
+                                    console.log("harshil");
+                                if (success) {
+                                    console.log("Kuch aaya");
+                                    $location.url("/user/" + success._id)
+                                }
+                                else {
                                     $location.url("/login");
-                                })
+                                }
 
+                            })
                         }
                         else {
                             vm.error = "Passwords do not match";

@@ -7,9 +7,9 @@
     function EditPageController($location,$routeParams,PageService){
         var vm = this;
 
-        var userId = parseInt($routeParams['uid']);
-        var websiteId=parseInt($routeParams['wid']);
-        var pageId=parseInt($routeParams['pid']);
+        var userId = $routeParams['uid'];
+        var websiteId=$routeParams['wid'];
+        var pageId=$routeParams['pid'];
         vm.id=userId;
         vm.websiteId=websiteId;
         vm.pageId=pageId;
@@ -32,7 +32,7 @@ init();
 
         function updatePage(pagename,pagetitle){
 
-          PageService.updatePage(vm.pageId,updatedpage)
+          PageService.updatePage(vm.pageId,pagename,pagetitle)
 
 
               .then(function (res) {

@@ -6,7 +6,7 @@
     function ProfileController($location,$routeParams, UserService) {
         var vm = this;
 
-        var userId = parseInt($routeParams['uid']);
+        var userId = $routeParams['uid'];
         vm.id=userId;
 
         vm.updateUser=updateUser;
@@ -15,18 +15,19 @@
         function init() {
             UserService
                 .findUserById(vm.id)
-                .success(function(user){
-                    vm.user=user;
-                })
-                .error(function(){
-                 console.log("User not found");
+                .then(function (user) {
+                    vm.user = user.data;
                 });
         }
         init();
 
 
-        function updateUser(someuser){
-            UserService.updateUser(vm.id,someuser);
+        function updateUser(someuser) {
+            UserService.updateUser(vm.user._id, someuser)
+                .then(function (response) {
+                    console.log(response.data);
+                    vm.success = "Success";
+                })
         }
 
         function deleteUser() {

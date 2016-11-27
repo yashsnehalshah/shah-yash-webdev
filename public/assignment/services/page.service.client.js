@@ -25,9 +25,9 @@
 
         function createPage(websiteId,name,title){
          var page={
-             _id:(new Date()).getTime()+"",
+
              name:name,
-             websiteId:websiteId,
+             _website:websiteId,
              title:title
          };
             var url="/api/website/"+websiteId+"/page";

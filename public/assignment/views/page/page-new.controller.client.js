@@ -6,8 +6,8 @@
 
     function NewPageController($location,$routeParams,PageService){
         var vm=this;
-        var userId = parseInt($routeParams['uid']);
-        var websiteId=parseInt($routeParams['wid']);
+        var userId = $routeParams['uid'];
+        var websiteId=$routeParams['wid'];
         vm.id=userId;
         vm.websiteId=websiteId;
 
@@ -17,8 +17,8 @@
         function init()
         {
             PageService.findPageByWebsiteId(vm.websiteId)
-                .success(function (res) {
-                    vm.pages=res;
+                .then(function (res) {
+                    vm.pages=res.data;
                 })
         }
         init();

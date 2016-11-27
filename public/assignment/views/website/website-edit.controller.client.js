@@ -7,10 +7,10 @@
     function EditWebsiteController($location,$routeParams,WebsiteService){
         var vm = this;
 
-        var userId = parseInt($routeParams['uid']);
+        var userId = $routeParams['uid'];
         vm.id=userId;
 
-        var websiteId = parseInt($routeParams['wid']);
+        var websiteId = $routeParams['wid'];
         vm.websiteId=websiteId;
 
         vm.updateWebsite=updateWebsite;

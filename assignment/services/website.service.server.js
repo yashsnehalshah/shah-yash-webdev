@@ -1,4 +1,6 @@
-module.exports = function(app) {
+module.exports = function(app,models) {
+    var websiteModel=models.websiteModel;
+
     var websites = [
      { _id: 123, name: "Facebook", description: "facebook",   developerId: 456 },
      { _id: 234, name: "Tweeter",  description: "twitter",   developerId: 456 },
@@ -17,61 +19,55 @@ module.exports = function(app) {
 
     function createWebsite(req, res) {
         var website = req.body;
-        websites.push(website);
-        res.send(website);
-        return;
+        var userId=req.params.userId;
+        websiteModel.createWebsite(userId,website)
+            .then(function(website) {
+                res.json(website);
+            },function(error) {
+                res.statusCode(404).send(error);
+            });
     }
+
 
     function findAllWebsitesForUser(req, res) {
         var uid = req.params.userId;
-        var result = [];
-        for(var w in websites) {
-            if(websites[w].developerId == uid) {
-                result.push(websites[w]);
-            }
-        }
-        res.send(result);
-        return;
+        websiteModel.findAllWebsitesForUser(uid)
+            .then(function (websites) {
+                res.json(websites);
+            },function (error) {
+                res.statusCode(404).send(error);
+            })
     }
 
 
     function findWebsiteById(req,res) {
         var wid=req.params.websiteId;
-        for(var w in websites){
-            if(websites[w]._id===wid){
-                res.send(websites[w]);
-                return;
-            }
-        }
-        res.send(null);
-        return;
+        websiteModel.findWebsiteById(wid)
+            .then(function (website) {
+                res.json(website);
+            },function (error) {
+                res.statusCode(404).send(error);
+            })
     }
 
     function updateWebsite(req,res) {
         var website=req.body;
-        for(var w in websites){
-            if(websites[w]._id===website._id){
-                websites[w].name=website.name;
-                websites[w].description=website.description;
-                res.send(true);
-                return;
-            }
-        }
-        res.send(false);
+        var wid=req.params.websiteId;
+        websiteModel.updateWebsite(wid,website)
+            .then(function (status) {
+                res.send(200);
+            },function (error) {
+                res.statusCode(404).send(error);
+            })
     }
-
 
     function deleteWebsite(req,res) {
         var wid=req.params.websiteId;
-        for(var w in websites){
-            if(websites[w]._id===wid){
-                websites.splice(i,1);
-                res.send(true);
-                return;
-            }
-        }
-        res.send(false)
-        return;
+        websiteModel.deleteWebsite(wid)
+            .then(function (status) {
+                res.send(200);
+            },function (error) {
+                res.statusCode(404).send(error);
+            })
     }
-
 };

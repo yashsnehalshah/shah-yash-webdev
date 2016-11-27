@@ -6,9 +6,9 @@
 
     function WidgetListController($routeParams,WidgetService,$sce){
         var vm = this;
-        var userId = parseInt($routeParams['uid']);
-        var websiteId=parseInt($routeParams['wid']);
-        var pageId=parseInt($routeParams['pid']);
+        var userId = $routeParams['uid'];
+        var websiteId=$routeParams['wid'];
+        var pageId=$routeParams['pid'];
         vm.id=userId;
         vm.websiteId=websiteId;
         vm.pageId=pageId;

@@ -7,7 +7,7 @@
     function NewWebsiteController($location,$routeParams,WebsiteService){
         var vm = this;
 
-        var userId = parseInt($routeParams['uid']);
+        var userId = $routeParams['uid'];
         vm.id=userId;
         vm.createNewWebsite=createNewWebsite;
 
@@ -25,7 +25,7 @@
 
 
         function createNewWebsite(n,d){
-            WebsiteService.createWebsite(vm.id,newcontent)
+            WebsiteService.createWebsite(n,d,vm.id)
                 .then(function (res) {
                     var newWebsite=res.data;
                     if(newWebsite){

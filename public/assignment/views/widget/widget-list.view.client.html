@@ -35,7 +35,7 @@
 <div class="container-fluid" jga-sortable>
 
 
-        <div ng-repeat="widget in model.widgets">
+        <div ng-repeat="widget in model.widgets | orderBy: 'order'">
             <div class="pull-right"><span class="glyphicon glyphicon glyphicon-align-justify"></span></div>
             <a href="#/user/{{model.id}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}" class="pull-right">
                 <span class="glyphicon glyphicon-cog"></span></a>
@@ -43,7 +43,7 @@
 
 
 
-            <div ng-switch="widget.widgetType" class="wam-widget">
+            <div ng-switch="widget.type" class="wam-widget">
             <div ng-switch-when="HEADER" ng-switch="widget.size">
                 <h1 ng-switch-when="1">{{widget.text}}</h1>
                 <h2 ng-switch-when="2">{{widget.text}}</h2>
