@@ -50,7 +50,7 @@
             <div class="navbar-header pull-right">
 
                 <p class="navbar-text pull-right rightmargin-fifteenpx">
-                    <a href ng-click="model.updateWebsite()" class="navbar-link">
+                    <a href ng-click="model.updateWebsite(); submitted=true" class="navbar-link">
                         <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
                         <span class="glyphicon glyphicon-ok white-color">
 
@@ -74,11 +74,19 @@
         </ul>
     </div>
     <div class="col-xs-12 col-sm-8">
-        <form>
+        <form name="myForm">
             <div class="form-group">
                 <label for="websitename">Website Name</label>
-                <input ng-model="model.website.name" type="text" class="form-control" id="websitename">
+                <input ng-model="model.website.name"
+                       type="text"
+                       ng-class="{ 'error-when' : submitted && myForm.name.$error.required }"
+                       required
+                       name="name"
+                       class="form-control"
+                       id="websitename">
             </div>
+            <span ng-show="submitted && myForm.name.$error.required"
+                  class="err">*Required Field</span>
             <div class="form-group">
                 <label for="websitedescription">Website Description</label>
                 <textarea ng-model="model.website.description" class="form-control" rows="3" id="websitedescription"></textarea>

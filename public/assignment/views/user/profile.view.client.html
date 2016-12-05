@@ -37,7 +37,7 @@
             </div>
             <div class="form-group">
                 <label for="email">Email address</label>
-                <input type="text" class="form-control" id="email" placeholder="alice@wonderland.com">
+                <input ng-model="model.user.email" type="text" class="form-control" id="email" placeholder="alice@wonderland.com">
             </div>
             <div class="form-group">
                 <label for="first-name">First Name</label>
@@ -52,7 +52,7 @@
         <a class="btn btn-primary btn-block"
            href="#/user/{{model.user._id}}/website">Websites</a>
         <a class="btn btn-danger btn-block"
-           href="#/login">Logout</a>
+           ng-click="model.logout()">Logout</a>
         <a class="btn btn-warning btn-block"
            ng-click="model.deleteUser()">Unregister</a>
     </div>
@@ -63,7 +63,7 @@
         <div class="navbar-header pull-right">
 
             <p class="navbar-text pull-right rightmargin-fifteenpx">
-                <a href="#/user/{{model.id}}" class="navbar-link">
+                <a href="#/user/{{model.user._id}}" class="navbar-link">
                     <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
                     <span class="glyphicon glyphicon-user white-color">
 

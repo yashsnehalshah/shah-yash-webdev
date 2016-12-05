@@ -5,19 +5,37 @@
         </div>
 
         <h1>Login</h1>
+        <form name="loginForm" ng-app>
+                <div class="control-group">
         <input type="text"
+               name="username"
                ng-model="username"
                class="form-control"
+               required
+               ng-class="{true: 'error'}[submitted && loginForm.username.$error.required]"
                placeholder="username"/>
+                        <span class="help-inline" ng-show="submitted && loginForm.username.$error.required">*Username is a Required field</span>
         <input type="password"
                ng-model="password"
+               name="password"
+               required
+               ng-class="{true: 'error'}[submitted && loginForm.password.$error.required]"
                class="form-control"
                placeholder="password"/>
+                        <span class="help-inline" ng-show="submitted && loginForm.password.$error.required">*Password is a Required field</span>
 
-        <h1>
-        </h1>
 
-        <a ng-click="model.login(username,password)" class="btn btn-primary btn-block">Login</a>
-        <a class="btn btn-success btn-block"
-           href="#/register">Register</a>
-</div>
+                </div>
+
+                <a ng-click="model.login(username,password) ; submitted=true"
+                   class="btn btn-primary btn-block">Login</a>
+                <a class="btn btn-success btn-block"
+                   href="#/register">Register</a>
+                <a class="btn btn-primary btn-block" href="/auth/facebook">
+                        <span class="fa fa-facebook-official"></span>
+                        Facebook
+                </a>
+        </form>
+
+
+        </div>

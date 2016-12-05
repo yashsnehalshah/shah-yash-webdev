@@ -49,7 +49,7 @@
             <div class="navbar-header pull-right">
 
                 <p class="navbar-text pull-right rightmargin-fifteenpx">
-                    <a href ng-click="model.createNewWebsite(name,description)" class="navbar-link">
+                    <a href ng-click="model.createNewWebsite(name,description); submitted=true" class="navbar-link">
                         <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
                         <span class="glyphicon glyphicon-ok white-color">
 
@@ -73,10 +73,19 @@
         </ul>
         </div>
     <div class="col-xs-12 col-sm-8">
-        <form>
+        <form name="myForm">
             <div class="form-group">
                 <label for="websitename">Name</label>
-                <input ng-model="name" type="text" class="form-control" id="websitename" placeholder="Name">
+                <input ng-model="name"
+                       type="text"
+                       class="form-control"
+                       name="name"
+                       ng-class="{ 'error-when' : submitted && myForm.name.$error.required }"
+                       required
+                       id="websitename"
+                       placeholder="Name">
+                <span ng-show="submitted && myForm.name.$error.required"
+                      class="err">*Required Field</span>
             </div>
             <div class="form-group">
                 <label for="websitedescription">Description</label>

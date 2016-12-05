@@ -21,7 +21,7 @@
         <div class="navbar-header pull-right">
 
             <p class="navbar-text pull-right rightmargin-fifteenpx">
-                <a href ng-click="model.updatePage(model.page.name,model.page.title)" class="navbar-link">
+                <a href ng-click="model.updatePage(model.page.name,model.page.title); submitted=true" class="navbar-link">
                     <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
                     <span class="glyphicon glyphicon-ok black-color">
 
@@ -34,11 +34,20 @@
 </nav>
 
 <div class="container">
-    <form>
+    <form name="myForm">
         <div class="form-group">
             <label for="pagename">Name</label>
-            <input ng-model="model.page.name" type="text" class="form-control" id="pagename" placeholder="Blog Post">
+            <input ng-model="model.page.name"
+                   required
+                   ng-class="{ 'error-when' : submitted && myForm.name.$error.required }"
+                   name="name"
+                   type="text"
+                   class="form-control"
+                   id="pagename"
+                   placeholder="Page Name">
         </div>
+        <span ng-show="submitted && myForm.name.$error.required"
+              class="err">*Required Field</span>
         <div class="form-group">
             <label for="pagetitle">Title</label>
             <input ng-model="model.page.title" type="text" class="form-control" id="pagetitle" placeholder="Page Title">

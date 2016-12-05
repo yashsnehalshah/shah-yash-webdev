@@ -8,6 +8,7 @@ module.exports=function () {
 
         createUser:createUser,
         findUserById:findUserById,
+        findFacebookUser:findFacebookUser,
         findUserByCredentials:findUserByCredentials,
         findUserByUsername:findUserByUsername,
         deleteUser:deleteUser,
@@ -15,6 +16,10 @@ module.exports=function () {
     };
     return api;
 
+
+    function findFacebookUser(id) {
+        return User.findOne({"facebook.id":id})
+    }
 
     function createUser(user) {
         console.log("In mongodb");

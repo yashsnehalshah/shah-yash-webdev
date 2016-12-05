@@ -27,7 +27,7 @@
                                 lastName: username
                             };
 
-                            UserService.createUser(user)
+                            UserService.register(user)
                                 .then(function (response) {
                                 var success = response.data;
                                     console.log("harshil");

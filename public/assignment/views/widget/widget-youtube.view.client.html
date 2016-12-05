@@ -21,7 +21,7 @@
         <div class="navbar-header pull-right">
 
             <p class="navbar-text pull-right rightmargin-fifteenpx">
-                <a href ng-click="model.updateWidget(model.widget)" class="navbar-link">
+                <a href ng-click="model.updateWidget(model.widget); submitted=true" class="navbar-link">
                     <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
                     <span class="glyphicon glyphicon-ok black-color">
 
@@ -34,11 +34,20 @@
 </nav>
 
 <div class="container">
-    <form>
+    <form name="myForm">
         <div class="form-group">
             <label for="widgetname">Name</label>
-            <input ng-model="model.widget.name" type="text" class="form-control" id="widgetname" placeholder="Name of Widget">
+            <input ng-model="model.widget.name"
+                   required
+                   ng-class="{ 'error-when' : submitted && myForm.name.$error.required }"
+                   name="name"
+                   type="text"
+                   class="form-control"
+                   id="widgetname"
+                   placeholder="Name of Widget">
         </div>
+        <span ng-show="submitted && myForm.name.$error.required"
+              class="err">*Required Field</span>
         <div class="form-group">
             <label for="widgettext">Text</label>
             <input ng-model="model.widget.text" type="text" class="form-control" id="widgettext" placeholder="Some Text">
