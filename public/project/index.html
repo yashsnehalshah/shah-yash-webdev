@@ -1,10 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="MyMovieApp">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../css/jquery-ui.css" rel="stylesheet"/>
+
+
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/jquery-ui.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
     <meta charset="UTF-8">
-    <title>Project Home Page</title>
+
+    <!--Controllers-->
+
+    <script src="client/views/searchhome.controller.client.js"></script>
+    <script src="client/views/moviepage.controller.client.js"></script>
+    <script src="client/views/followingothers-list.controller.client.js"></script>
+    <script src="client/views/login.controller.client.js"></script>
+    <script src="client/views/register.controller.client.js"></script>
+    <script src="client/views/profile.controller.client.js"></script>
+    <script src="client/views/searchhome.controller.client.js"></script>
+    <script src="client/views/searchusers.controller.client.js"></script>
+    <script src="client/views/writereview.controller.client.js"></script>
+    <script src="client/views/moviereviews.controller.client.js"></script>
+    <script src="client/views/admin.controller.client.js"></script>
+    <script src="client/views/ownfavorites.controller.client.js"></script>
+    <script src="client/views/ownreviews.controller.client.js"></script>
+    <script src="client/views/otheruserdetails.controller.client.js"></script>
+    <script src="client/views/reviewsofamovie.controller.client.js"></script>
+    <script src="client/views/ownfollowings.controller.client.js"></script>
+    <!--services-->
+    <script src="client/services/movie.service.client.js"></script>
+    <script src="client/services/user.service.client.js"></script>
+    <script src="client/services/review.service.client.js"></script>
+    <script src="client/services/following.service.client.js"></script>
+    <script src="client/services/favorite.service.client.js"></script>
+
 </head>
 <body>
-    <h1>Project Home Page</h1>
+<div ng-view>
+</div>
 </body>
 </html>

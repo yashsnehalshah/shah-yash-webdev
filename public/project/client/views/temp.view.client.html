@@ -1,0 +1,68 @@
+<nav class="navbar navbar-inverse  navbar-fixed-top">
+    <div class="container-fluid">
+
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="#navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a  href="#/user/{{model.user._id}}/home" class="navbar-brand page-scroll">GetMeFood <span class="backgroundFont glyphicon glyphicon-cutlery"> </span> </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="navbar-collapse collapse " id="navbar">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="#/user/{{model.user._id}}/home">Search Movies</a>
+            </li>
+            <li>
+                <a href="#/user/{{model.user._id}}/findPeople">Find People</a>
+            </li>
+            <li>
+                <a href="#/user/{{model.user._id}}/own/reviewsByUser">View your reviews</a>
+            </li>
+
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container-fluid">
+<a href="#/search">user search</a>
+
+<a href="#/user/{{model.user._id}}/follows">Follows</a>
+
+</div>
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="container ">
+        <div class="row  navbar-text">
+            <div class="col-lg-3 col-md-3 col-sm-3 bottom-cut footer-fontcolor ">
+                <a href="#/user/{{model.user._id}}/home">
+                    <span class="footer-fontcolor glyphicon glyphicon-cutlery"></span>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3  text-center">
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3  text-center">
+            </div>
+            <div class="col-lg-3 bottom-profile  text-center">
+            </div>
+        </div>
+    </div>
+</nav>

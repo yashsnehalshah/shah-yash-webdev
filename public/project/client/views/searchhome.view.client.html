@@ -1,0 +1,62 @@
+
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+        <div class="navbar-header navbar-brand pull-left leftpadding-twentyfivepx">
+            <p class="white-color">
+                <b>Welcome to MyMovieStore</b>
+            </p>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <h1>Movie Search</h1>
+    <div class="input-group">
+        <input ng-model="model.title" type="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+                <button ng-click="model.searchMovieByTitle(model.title)" class="btn btn-default" type="button">Go!</button>
+            </span>
+    </div>
+    <div ng-show="model.error" class="alert alert-danger" role="alert">
+        {{model.error}}
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Poster</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="movie in model.movies">
+            <td><a href="#/user/{{model.userId}}/searchmovies/{{movie.imdbID}}/{{model.title}}">{{movie.Title}}</a></td>
+            <td>{{movie.Year}}</td>
+            <td><img ng-src="{{movie.Poster}}" height="100px"/></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+
+        <div class="navbar-header pull-right">
+
+            <p class="navbar-text pull-right rightmargin-fifteenpx">
+                <a href="#/user/{{model.userId}}" class="navbar-link">
+                    <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
+                    <span class="glyphicon glyphicon-user white-color">
+
+          </span>
+                    <!--</div>-->
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>

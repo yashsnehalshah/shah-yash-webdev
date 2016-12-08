@@ -1,0 +1,116 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+        <div class="navbar-header navbar-brand pull-left leftpadding-twentyfivepx">
+            <p class="white-color">
+                <b>Welcome to MyMovieStore</b>
+            </p>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <h1>User Search</h1>
+    <div class="input-group">
+        <input ng-model="model.searchText" type="text" class="form-control" placeholder="Search for users">
+        <span class="input-group-btn">
+                <button ng-click="model.searchUsers(model.searchText)" class="btn btn-default" type="button">Go!</button>
+            </span>
+    </div>
+    <div ng-show="model.error" class="alert alert-danger" role="alert">
+        {{model.error}}
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--<tr ng-repeat="user in model.users">-->
+            <td><a href="#/user/{{model.userId}}/searchusers/{{model.users._id}}">{{model.users.username}}</a></td>
+            <td>{{model.users.firstName}}</td>
+            <td>{{model.users.lastName}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 align="center">Find Users</h2>
+            <div id="custom-search-input">
+                <div class="input-group col-md-12 ">
+                    <input type="text"
+                           class="form-control"
+                           placeholder="Bob"
+                           ng-model="model.searchText"/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg"
+                                ng-click="model.searchUsers(model.searchText); show=true"
+                                type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="custom-search container">
+    <div ng-show="model.error" class="alert alert-danger" role="alert">
+        {{model.error}}
+    </div>
+    <hggroup class="mb20" ng-if="model.searchText && show">
+        <h2 class="lead" align="center"><strong class="text-danger">{{model.users.length}}</strong> results were found.</h2>
+    </hggroup>
+    <p class="text-muted" ng-if="model.searchResults.length<1 && show">Try searching: Alice/ Bob/ Vikram</p>
+</div>
+<div class="custom-table well">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+            <th style="width: 36px;"></th>
+        </tr>
+        </thead>
+        <tbody >
+        <tr  ng-repeat="user in model.users">
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+
+            <td>
+                <a href="#/user/{{model.userId}}/home/userProfile/{{user._id}}" class="navbar-link">{{user.username}}</a>
+                </td>
+
+        </tbody>
+    </table>
+</div>
+-->
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+
+        <div class="navbar-header pull-right">
+
+            <p class="navbar-text pull-right rightmargin-fifteenpx">
+                <a href="#/user/{{model.userId}}" class="navbar-link">
+                    <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
+                    <span class="glyphicon glyphicon-user white-color">
+
+          </span>
+                    <!--</div>-->
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>

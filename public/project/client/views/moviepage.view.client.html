@@ -1,0 +1,112 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+        <div class="navbar-header navbar-brand pull-left leftpadding-twentyfivepx">
+            <p class="white-color">
+                <b>Welcome to MyMovieStore</b>
+            </p>
+        </div>
+
+        <div class="navbar-header pull-right white-color">
+
+            <p class="navbar-text pull-right rightmargin-fifteenpx white-color">
+                <a href="#/user/{{model.userId}}/searchmovies/{{model.imdbId}}/{{model.title}}/reviews" class="white-color">View reviews</a>
+            <a href="#/user/{{model.userId}}/searchmovies/{{model.imdbId}}/{{model.title}}/new" class="white-color">Write a review</a>
+            <a href ng-click="model.addtofavorite(model.userId,model.movie)" class="white-color">Add to favorites</a>
+            </p>
+        </div>
+
+        <!--<div class="navbar-header pull-right">
+            <ul class="nav navbar-nav navbar-right list-group">
+                <li class="list-group-item">
+                    <a href="#/user/{{model.userId}}/searchmovies/{{model.imdbId}}/{{model.title}}/reviews"><p class="white-color">View reviews</p></a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#/user/{{model.userId}}/searchmovies/{{model.imdbId}}/{{model.title}}/new"><p class="white-color">Write a review</p></a>
+                </li>
+                <li class="list-group-item">
+                    <a href ng-click="model.addtofavorite(model.userId,model.movie)"><p class="white-color">Add to favorites</p></a>
+                </li>
+            </ul>
+
+        </div>-->
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+    <br>
+    <h1>
+        {{model.movie.Title}}
+    </h1>
+
+
+    <div class="row">
+
+            <div class="col-xs-6">
+
+            <div>
+                Directed by: {{model.movie.Director}}
+            </div>
+            <div>
+                Rated: {{model.movie.Rated}}
+            </div>
+            <div>
+                Released: {{model.movie.Released}}
+            </div>
+            <div>
+                Plot: {{model.movie.Plot}}
+            </div>
+            <div>
+                Runtime: {{model.movie.Runtime}}
+            </div>
+            <div>
+                Actors:
+                <ul>
+                    <li ng-repeat="actor in model.movie.Actors.split(',')">
+                        {{actor}}
+                    </li>
+                </ul>
+            </div>
+            <div>
+                Genre: {{model.movie.Genre}}
+            </div>
+            <div>
+                Country: {{model.movie.Country}}
+            </div>
+            <div>
+                Language: {{model.movie.Language}}
+            </div>
+            <div>
+                Awards and Nominations: {{model.movie.Awards}}
+            </div>
+            <div>
+                IMDB rating: {{model.movie.imdbRating}}
+            </div>
+        </div>
+        <div class="pull-right rightmargin-seventypx">
+            <img ng-src="{{model.movie.Poster}}" height="300px"/>
+        </div>
+    </div>
+
+    <!--{{model.movie}}-->
+</div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+
+        <div class="navbar-header pull-right">
+
+            <p class="navbar-text pull-right rightmargin-fifteenpx">
+                <a href="#/user/{{model.userId}}" class="navbar-link">
+                    <!--<div class="nav navbar-nav navbar-right row navbar-text text-center">-->
+                    <span class="glyphicon glyphicon-user white-color">
+
+          </span>
+                    <!--</div>-->
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
