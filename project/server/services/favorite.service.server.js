@@ -71,37 +71,7 @@ module.exports = function (app, models) {
             awards: movie.Awards
         }
 console.log(tempmovie);
-        /*movieModel
-            .findMovie(movieId)
-            .then(
-                function (mdata, error) {
-                    movieModel
-                        .addMovie(tempmovie)
-                        .then(
-                            function (mdata) {
-                                actualmovieid = mdata._id;
-                                console.log(actualmovieid);
-                                var fav = {
-                                    _user: userId,
-                                    _movie: actualmovieid,
-                                    moviename:movie.name
-                                };
-                                favoriteModel
-                                    .addFavorite(fav)
-                                    .then(
-                                        function (addedfav) {
-                                            res.json(addedfav);
-                                        },
-                                        function (err) {
-                                            res.status(400).send(err);
-                                        }
-                                    )
-                            })
-                })
 
-
-    }
-*/
 
         movieModel
             .findMovie(movieId)
